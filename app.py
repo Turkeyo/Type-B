@@ -1,4 +1,3 @@
-from http import server
 from flask import Flask, request, abort
 import os
 from linebot import (
