@@ -99,7 +99,8 @@ def reply(event,message):
     elif(re.match("Hanabira",message)):
         audio_message = AudioSendMessage(
             #設定音效檔
-            original_content_url="https://b.ppy.sh/preview/332280.mp3"
+            original_content_url="https://b.ppy.sh/preview/332280.mp3",
+            duration=30000
         )
         #傳送地圖訊息
         line_bot_api.reply_message(
