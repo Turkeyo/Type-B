@@ -1,6 +1,7 @@
+from http import server
 from flask import Flask, request, abort
+from gevent import pywsgi
 import os
-
 from linebot import (
     LineBotApi, WebhookHandler
 )
@@ -40,6 +41,9 @@ def handle_message(event):
     line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text=event.message.text))
+
+server = pywsgi.WSGIServer(('0,0,0,0'),12345),app
+server.server_forver()
 
 if __name__ == "__main__":
     app.run()
