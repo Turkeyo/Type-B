@@ -1,7 +1,2 @@
 line-bot-sdk
 flask
-passlib
-SQLAlchemy
-Werkzeug
-gunicorn
-gevent
