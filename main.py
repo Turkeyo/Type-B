@@ -65,10 +65,11 @@ def reply(event,message):
         )
     elif(re.match("Where are you")):
         location_message = LocationSendMessage(
-            title= "比齊寶",
-            address= "深海的炸鳳梨裡",
-            latitude= 11,
-            longitude=11,
+            title= "你知道這是什麼嗎?",
+            address= "亞馬遜雨林",
+            #座標經緯度
+            latitude= -3.465240904243103,
+            longitude=  -62.215848348909105
         )
         #傳送地圖訊息
         line_bot_api.reply_message(
