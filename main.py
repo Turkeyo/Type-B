@@ -39,9 +39,10 @@ def callback():
 #機器人回覆訊息
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    line_bot_api.reply_message(
-            event.reply_token,
-            TextSendMessage(type(text=event.message.text)))
+    if(event.message.text == "早安"):
+        line_bot_api.reply_message(
+                event.reply_token,
+                TextSendMessage(event.message.text + "創造者"))
 
 if __name__ == "__main__":
     app.run()
