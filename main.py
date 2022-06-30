@@ -89,7 +89,7 @@ def reply(event,message):
     elif(re.match("喵",message)):
         video_message = VideoSendMessage(
             #設定原圖
-            original_content_url="https://www.youtube.com/watch?v=XisJD8V1Rqw&t=56shttps://www.youtube.com/watch?v=XisJD8V1Rqw&t=56s",
+            original_content_url="https://imgur.com/gallery/Gc9O0Xy",
             #設定預覽圖
             preview_image_url="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.Gz6LSp2G-sAkXhV2BeWsDQHaD4%26pid%3DApi%26h%3D160&f=1"
         )
