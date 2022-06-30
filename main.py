@@ -56,4 +56,14 @@ def reply(event,message):
     if(re.match("早安",message)):
         line_bot_api.reply_message(
                 event.reply_token,
-                TextSendMessage(event.message.text + event.send))
+                TextSendMessage(event.message.text))
+    elif(re.match("Duck不必",message)):
+        #貼圖訊息
+        sticker_message = sticker_message(
+                package_id='789',
+                sticker_id='10855'
+        )
+        line_bot_api.reply_message(
+            event.reply_token,
+            sticker_message
+        )
