@@ -12,7 +12,7 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import (
-    MessageEvent, TextMessage, TextSendMessage,StickerSendMessage,LocationSendMessage
+    MessageEvent, TextMessage, TextSendMessage,StickerSendMessage,LocationSendMessage,ImageSendMessage
 )
 
 app = Flask(__name__)
@@ -68,12 +68,21 @@ def reply(event,message):
             title= "你知道這是什麼嗎?",
             address= "亞馬遜雨林",
             #座標經緯度
-            latitude= -3.4652035624134405,
-            longitude=  -62.21585904250738
+            latitude= -3.465085760983781,
+            longitude=  -62.215912686683325
         )
         #傳送地圖訊息
         line_bot_api.reply_message(
             event.reply_token,location_message
+        )
+    elif(re.match("不可以色色",message)):
+        image_message = ImageSendMessage(
+            original_content_url="https://i.imgur.com/UnDldbZ.jpg",
+            preview_image_url="https://i.imgur.com/qxWF0Ehh.jpg"
+        )
+        #傳送地圖訊息
+        line_bot_api.reply_message(
+            event.reply_token,image_message
         )
 if __name__ == "__main__":
     app.run()
