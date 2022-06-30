@@ -1,3 +1,4 @@
+from audioop import add
 from cgitb import text
 from itertools import product
 from flask import Flask, request, abort
@@ -11,7 +12,7 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import (
-    MessageEvent, TextMessage, TextSendMessage,StickerSendMessage
+    MessageEvent, TextMessage, TextSendMessage,StickerSendMessage,LocationSendMessage
 )
 
 app = Flask(__name__)
@@ -52,15 +53,27 @@ def reply(event,message):
                 event.reply_token,
                 TextSendMessage(event.message.text))
     elif(re.match("Duck不必",message)):
-        #貼圖訊息
+        #貼圖編號網站https://developers.line.biz/en/docs/messaging-api/sticker-list/#sticker-definitions
+        #設定貼圖
         sticker_message = StickerSendMessage(
                 package_id='789',
                 sticker_id='10855'
         )
+        #傳送貼圖訊息
         line_bot_api.reply_message(
             event.reply_token,sticker_message
         )
-
+    elif(re.match("Where are you")):
+        location_message = LocationSendMessage(
+            title= "比齊寶",
+            address= "深海的炸鳳梨裡",
+            latitude= 11,
+            longitude=11,
+        )
+        #傳送地圖訊息
+        line_bot_api.reply_message(
+            event.reply_token,location_message
+        )
 if __name__ == "__main__":
     app.run()
     port = int(os.environ.get('PORT',5000))
