@@ -1,3 +1,6 @@
 line-bot-sdk
 flask
 gunicorn == 20.1.0
+urllib3==1.25.9
+Werkzeug==1.0.1
+uwsgi
