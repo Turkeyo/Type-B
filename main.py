@@ -12,7 +12,7 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import (
-    MessageEvent, TextMessage, TextSendMessage,StickerSendMessage,LocationSendMessage,ImageSendMessage,VideoSendMessage
+    MessageEvent, TextMessage, TextSendMessage,StickerSendMessage,LocationSendMessage,ImageSendMessage,VideoSendMessage,AudioSendMessage
 )
 
 app = Flask(__name__)
@@ -88,14 +88,21 @@ def reply(event,message):
         )
     elif(re.match("喵",message)):
         video_message = VideoSendMessage(
-            #設定原圖
-            original_content_url="https://imgur.com/gallery/Gc9O0Xy",
-            #設定預覽圖
-            preview_image_url="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.Gz6LSp2G-sAkXhV2BeWsDQHaD4%26pid%3DApi%26h%3D160&f=1"
+            #設定影片連結
+            original_content_url="/place/Rickroll lol - Imgur.mp4",
         )
         #傳送地圖訊息
         line_bot_api.reply_message(
             event.reply_token,video_message
+        )
+    elif(re.match("Ara",message)):
+        audio_message = AudioSendMessage(
+            #設定音效檔
+            original_content_url="/place/neco-arc-meow",
+        )
+        #傳送地圖訊息
+        line_bot_api.reply_message(
+            event.reply_token,audio_message
         )
 if __name__ == "__main__":
     app.run()
