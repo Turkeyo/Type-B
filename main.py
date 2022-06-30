@@ -59,7 +59,7 @@ def reply(event,message):
         line_bot_api.reply_message(
                 event.reply_token,
                 TextSendMessage(event.message.text))
-    elif(re.match("Duck不必",message)):
+    #elif(re.match("Duck不必",message)):
         #貼圖訊息
         #sticker_message = StickerMessage(
         #        package_id='789',
