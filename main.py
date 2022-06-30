@@ -1,6 +1,5 @@
 from cgitb import text
 from itertools import product
-from tkinter import Message
 from flask import Flask, request, abort
 import os
 import re #判斷接收訊息
@@ -46,13 +45,6 @@ def handle_message(event):
     message = event.message.text
     reply(event,message)
 
-if __name__ == "__main__":
-    app.run()
-    port = int(os.environ.get('PORT',5000))
-    app.run(host='0.0.0.0',port=port,debug=True)
-
-
-
 def reply(event,message):
     #判斷接收訊息
     if(re.match("早安",message)):
@@ -68,3 +60,8 @@ def reply(event,message):
         #line_bot_api.reply_message(
         #    event.reply_token,sticker_message
         #)
+
+if __name__ == "__main__":
+    app.run()
+    port = int(os.environ.get('PORT',5000))
+    app.run(host='0.0.0.0',port=port,debug=True)
