@@ -65,11 +65,11 @@ def reply(event,message):
         )
     elif(re.match("Where are you",message)):
         location_message = LocationSendMessage(
-            title= "高雄市壽山動物園",
-            address= "高雄市鼓山區萬壽路350號",
+            title= "你知道這是什麼嗎?",
+            address= "亞馬遜雨林",
             #座標經緯度
-            latitude= 22.636113729166258,
-            longitude=  120.27545572162684
+            latitude= -3.4652035624134405,
+            longitude=  -62.21585904250738
         )
         #傳送地圖訊息
         line_bot_api.reply_message(
