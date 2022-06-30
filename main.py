@@ -63,7 +63,7 @@ def reply(event,message):
         line_bot_api.reply_message(
             event.reply_token,sticker_message
         )
-    elif(re.match("你在哪")):
+    elif(re.match("Where are you"),message):
         location_message = LocationSendMessage(
             title= "高雄市壽山動物園",
             address= "高雄市鼓山區萬壽路350號",
