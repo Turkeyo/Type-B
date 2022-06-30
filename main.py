@@ -2,7 +2,6 @@ from cgitb import text
 from itertools import product
 from flask import Flask, request, abort
 import os
-import Replay
 from linebot import (
     LineBotApi, WebhookHandler
 )
@@ -44,7 +43,7 @@ def handle_message(event):
     message = event.message.text
 
     if(message == "早安"):
-        Replay.reply(event,message)
+        reply(event,message)
         #line_bot_api.reply_message(
         #        event.reply_token,
         #        TextSendMessage(event.message.text + "創造者"))
@@ -54,7 +53,7 @@ def reply(event,message):
         line_bot_api.reply_message(
                 event.reply_token,
                 TextSendMessage(event.message.text + "創造者"))
-                
+
 if __name__ == "__main__":
     app.run()
     port = int(os.environ.get('PORT',5000))
