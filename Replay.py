@@ -10,8 +10,3 @@ from linebot.models import (
 
 app = Flask(__name__)
 
-def reply(event,message):
-    if(message == "早安"):
-        line_bot_api.reply_message(
-                event.reply_token,
-                TextSendMessage(event.message.text + "創造者"))
