@@ -89,17 +89,17 @@ def reply(event,message):
     elif(re.match("喵",message)):
         video_message = VideoSendMessage(
             #設定影片連結
-            original_content_url="/place/Rickroll lol - Imgur.mp4",
+            original_content_url="https://media.giphy.com/media/QMHoU66sBXqqLqYvGO/giphy.gif",
             preview_image_url="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.Q0HpYXqb_UAG1tIoue99-QHaEo%26pid%3DApi&f=1"
         )
         #傳送地圖訊息
         line_bot_api.reply_message(
             event.reply_token,video_message
         )
-    elif(re.match("Ara",message)):
+    elif(re.match("Hanabira",message)):
         audio_message = AudioSendMessage(
             #設定音效檔
-            original_content_url="/place/neco-arc-meow.mp4"
+            original_content_url="https://b.ppy.sh/preview/332280.mp3"
         )
         #傳送地圖訊息
         line_bot_api.reply_message(
