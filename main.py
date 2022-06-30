@@ -2,6 +2,7 @@ from cgitb import text
 from itertools import product
 from flask import Flask, request, abort
 import os
+import re #判斷接收訊息
 from linebot import (
     LineBotApi, WebhookHandler
 )
@@ -41,20 +42,18 @@ def callback():
 def handle_message(event):
     #取得使用者的訊息
     message = event.message.text
-
-    if(message == "早安"):
-        reply(event,message)
-        #line_bot_api.reply_message(
-        #        event.reply_token,
-        #        TextSendMessage(event.message.text + "創造者"))
-
-def reply(event,message):
-    if(message == "早安"):
-        line_bot_api.reply_message(
-                event.reply_token,
-                TextSendMessage(event.message.text + "創造者"))
+    reply(event,message)
 
 if __name__ == "__main__":
     app.run()
     port = int(os.environ.get('PORT',5000))
     app.run(host='0.0.0.0',port=port,debug=True)
+
+
+
+def reply(event,message):
+    #判斷接收訊息
+    if(re.match("早安",message)):
+        line_bot_api.reply_message(
+                event.reply_token,
+                TextSendMessage(event.message.text + event.send))
