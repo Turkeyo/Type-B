@@ -59,7 +59,7 @@ def reply(event,message):
                 TextSendMessage(event.message.text))
     elif(re.match("Duck不必",message)):
         #貼圖訊息
-        sticker_message = sticker_message(
+        sticker_message = StickerSendMessage(
                 package_id='789',
                 sticker_id='10855'
         )
