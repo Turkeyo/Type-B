@@ -3,4 +3,4 @@ flask
 gunicorn == 20.1.0
 urllib3==1.25.9
 Werkzeug==1.0.1
-uwsgi==1.4
+uwsgi==2.0.20
