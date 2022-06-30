@@ -16,7 +16,7 @@ app = Flask(__name__)
 line_bot_api = LineBotApi('GMs6Tk96xQY4mxFbMB/DDgzwIphmIBuxaVrtEAdhdA+efTcRsYKeLseoIlTsab9/aEDaEGKLJgUlo9fohNT9dFILA6MwRtxe0t5j19BbR/4IiJoKgFMf+GXWtXVIyYFb0G/ReGkKlvYbLqQvxTLyDwdB04t89/1O/w1cDnyilFU=')
 handler = WebhookHandler('4b0e8e639bef445d9c9a9497573741cc')
 	
-line_bot_api.push_message('U4a4203a9016e01ae9310c692a606d2ed', TextSendMessage(text='你可以開始了'))
+line_bot_api.push_message('U4a4203a9016e01ae9310c692a606d2ed', TextSendMessage(text='BOT啟動成功'))
 
 
 @app.route("/callback", methods=['POST'])
@@ -43,6 +43,10 @@ def handle_message(event):
         line_bot_api.reply_message(
                 event.reply_token,
                 TextSendMessage(event.message.text + "創造者"))
+    elif(event.message.text == "生日"):
+        line_bot_api.reply_message(
+                event.reply_token,
+                TextSendMessage("001"))
 
 if __name__ == "__main__":
     app.run()
