@@ -4,7 +4,7 @@ from tkinter import Message
 from flask import Flask, request, abort
 import os
 import re #判斷接收訊息
-import linebot
+
 from linebot import (
     LineBotApi, WebhookHandler
 )
