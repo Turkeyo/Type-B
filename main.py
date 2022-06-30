@@ -1,8 +1,10 @@
 from cgitb import text
 from itertools import product
+from tkinter import Message
 from flask import Flask, request, abort
 import os
 import re #判斷接收訊息
+import linebot
 from linebot import (
     LineBotApi, WebhookHandler
 )
@@ -10,7 +12,7 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import (
-    MessageEvent, TextMessage, TextSendMessage,
+    MessageEvent, TextMessage, TextSendMessage,StickerSendMessage
 )
 
 app = Flask(__name__)
@@ -64,6 +66,5 @@ def reply(event,message):
                 sticker_id='10855'
         )
         line_bot_api.reply_message(
-            event.reply_token,
-            sticker_message
+            event.reply_token,sticker_message
         )
