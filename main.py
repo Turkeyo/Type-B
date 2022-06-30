@@ -65,8 +65,8 @@ def reply(event,message):
         )
     elif(re.match("Where are you")):
         location_message = LocationSendMessage(
-            title= "你知道這是什麼嗎?",
-            address= "亞馬遜雨林",
+            title= "亞馬遜雨林",
+            address= "Codajás, 科達雅斯 - 亞馬遜州69450-000巴西",
             #座標經緯度
             latitude= -3.465240904243103,
             longitude=  -62.215848348909105
