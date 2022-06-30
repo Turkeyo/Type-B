@@ -51,8 +51,10 @@ def handle_message(event):
 
 def reply(event,message):
     if(message == "早安"):
-        return(event.reply_token,TextSendMessage(event.message.text + "創造者"))
-
+        line_bot_api.reply_message(
+                event.reply_token,
+                TextSendMessage(event.message.text + "創造者"))
+                
 if __name__ == "__main__":
     app.run()
     port = int(os.environ.get('PORT',5000))
