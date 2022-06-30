@@ -1,3 +1,2 @@
 line-bot-sdk
 flask
-gunicron == 20.0.4
