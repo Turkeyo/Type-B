@@ -12,7 +12,7 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import (
-    MessageEvent, TextMessage, TextSendMessage,StickerSendMessage
+    MessageEvent, TextMessage, TextSendMessage,StickerMessage
 )
 
 app = Flask(__name__)
@@ -61,7 +61,7 @@ def reply(event,message):
                 TextSendMessage(event.message.text))
     elif(re.match("Duck不必",message)):
         #貼圖訊息
-        sticker_message = StickerSendMessage(
+        sticker_message = StickerMessage(
                 package_id='789',
                 sticker_id='10855'
         )
