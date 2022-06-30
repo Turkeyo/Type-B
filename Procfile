@@ -1,1 +1,1 @@
-web: uwsgi uwsgi.ini
+Type-B: python3 main.py
