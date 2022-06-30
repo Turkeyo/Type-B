@@ -1,1 +1,1 @@
-web: uwsgi uwsgi.ini thin start -p $PORT
+web: uwsgi uwsgi.ini
