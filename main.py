@@ -12,7 +12,7 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import (
-    MessageEvent, TextMessage, TextSendMessage,StickerSendMessage,LocationSendMessage,ImageSendMessage
+    MessageEvent, TextMessage, TextSendMessage,StickerSendMessage,LocationSendMessage,ImageSendMessage,VideoSendMessage
 )
 
 app = Flask(__name__)
@@ -77,12 +77,25 @@ def reply(event,message):
         )
     elif(re.match("不可以色色",message)):
         image_message = ImageSendMessage(
+            #設定原圖
             original_content_url="https://i.imgur.com/UnDldbZ.jpg",
+            #設定預覽圖
             preview_image_url="https://i.imgur.com/qxWF0Ehh.jpg"
         )
         #傳送地圖訊息
         line_bot_api.reply_message(
             event.reply_token,image_message
+        )
+    elif(re.match("喵",message)):
+        video_message = VideoSendMessage(
+            #設定原圖
+            original_content_url="https://www.youtube.com/watch?v=XisJD8V1Rqw&t=56shttps://www.youtube.com/watch?v=XisJD8V1Rqw&t=56s"
+            #設定預覽圖
+            preview_image_url="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.Gz6LSp2G-sAkXhV2BeWsDQHaD4%26pid%3DApi%26h%3D160&f=1"
+        )
+        #傳送地圖訊息
+        line_bot_api.reply_message(
+            event.reply_token,video_message
         )
 if __name__ == "__main__":
     app.run()
