@@ -13,7 +13,7 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import (
-    MessageEvent, TextMessage, TextSendMessage,StickerSendMessage,LocationSendMessage,ImageSendMessage,VideoSendMessage,AudioSendMessage,TemplateSendMessage,CarouselTemplate,PostbackTemplateAction,CarouselColumn,MessageTemplateAction,URITemplateAction
+    MessageEvent, TextMessage, TextSendMessage,StickerSendMessage,LocationSendMessage,ImageSendMessage,VideoSendMessage,AudioSendMessage,TemplateSendMessage,CarouselTemplate,MessageAction,CarouselColumn
 )
 
 app = Flask(__name__)
@@ -117,27 +117,20 @@ def reply(event,message):
                         title= "英文天才",
                         text = "Fan之Q",
                         actions=[
-                            PostbackTemplateAction(
-                            label='postback1',
-                            text='postback text1',
-                            data='action=buy&itemid=1'
-                            ),
-                            MessageTemplateAction(
-                                label='message1',
-                                text='message text1'
-                            ),
-                            URITemplateAction(
-                                label='uri1',
-                                uri='http://example.com/1'
-                            )
+                            MessageAction( 
+                                label= " 個股資訊",
+                                text= "個股資訊"),
+                            MessageAction( 
+                                label= " 個股新聞",
+                                text= "個股新聞")
                         ]
                     )
                 ]
             )
         )
         line_bot_api.reply_message(
-            event.reply_token,button_template_message
-        )
+            event.reply_token, button_template_message
+            )
 
 if __name__ == "__main__":
     app.run()
