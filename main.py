@@ -1,7 +1,7 @@
 from audioop import add
 from cgitb import text
-from itertools import product
-from pipes import Template
+#from itertools import product
+#from pipes import Template
 from flask import Flask, request, abort
 import os
 import re #判斷接收訊息
@@ -13,7 +13,7 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import (
-    MessageEvent, TextMessage, TextSendMessage,StickerSendMessage,LocationSendMessage,ImageSendMessage,VideoSendMessage,AudioSendMessage,TemplateSendMessage,CarouselTemplate,MessageAction
+    MessageEvent, TextMessage, TextSendMessage,StickerSendMessage,LocationSendMessage,ImageSendMessage,VideoSendMessage,AudioSendMessage,TemplateSendMessage,CarouselTemplate,MessageAction,CarouselColumn
 )
 
 app = Flask(__name__)
@@ -107,12 +107,12 @@ def reply(event,message):
         line_bot_api.reply_message(
             event.reply_token,audio_message
         )
-    if("Fan" in message):
+    if"Fan" in message:
         button_template_message = TemplateSendMessage(
             alt_text="你知道這是什麼嗎?",
             template=CarouselTemplate(
                 coulums=[
-                    CarouselTemplate(
+                    CarouselColumn(
                         thumbnail_image_url="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIF.ZhiK%252f%252fqNUBAX7pfX4%252fr9nw%26pid%3DApi&f=1",
                         title= "message" + "英文天才",
                         text = "Fan之Q",
