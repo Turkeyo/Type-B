@@ -109,7 +109,7 @@ def reply(event,message):
         line_bot_api.reply_message(
             event.reply_token,audio_message
         )
-    elif("Fans" in message):
+    elif("Fan" in message):
         button_template_message = TemplateSendMessage(
             alt_text="你知道這是什麼嗎?",
             template=CarouselTemplate(
