@@ -1,7 +1,6 @@
 from audioop import add
 from cgitb import text
 from itertools import product
-from msilib.schema import tables
 from pipes import Template
 from tkinter import Button
 from flask import Flask, request, abort
@@ -108,6 +107,32 @@ def reply(event,message):
         #傳送音效訊息
         line_bot_api.reply_message(
             event.reply_token,audio_message
+        )
+    elif("Fan" in message):
+        button_template_message = TemplateSendMessage(
+            alt_text="你知道這是什麼嗎?",
+            template=CarouselTemplate(
+                coulums=[
+                    CarouselTemplate(
+                        thumbnail_image_url="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIF.ZhiK%252f%252fqNUBAX7pfX4%252fr9nw%26pid%3DApi&f=1",
+                        title= "message" + "英文天才",
+                        text = "Fan之Q",
+                        actions = [
+                            MessageAction(
+                                label = message[3:] + "英文課程",
+                                text = "英文課程資訊" + message[3:],
+                            ),
+                            MessageAction(
+                                label = message[3:] + "發音課程",
+                                text = "發音課程資訊" + message[3:],
+                            )
+                        ]
+                    )
+                ]
+            )
+        )
+        line_bot_api.reply_message(
+            event.reply_token,button_template_message
         )
 
 if __name__ == "__main__":
