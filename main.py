@@ -13,7 +13,7 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import (
-    MessageEvent, TextMessage, TextSendMessage,StickerSendMessage,LocationSendMessage,ImageSendMessage,VideoSendMessage,AudioSendMessage,TemplateSendMessage,CarouselTemplate,MessageAction,CarouselColumn
+    MessageEvent, TextMessage, TextSendMessage,StickerSendMessage,LocationSendMessage,ImageSendMessage,VideoSendMessage,AudioSendMessage,TemplateSendMessage,CarouselTemplate,PostbackTemplateAction,CarouselColumn,MessageTemplateAction,URITemplateAction
 )
 
 app = Flask(__name__)
@@ -116,14 +116,19 @@ def reply(event,message):
                         thumbnail_image_url="https://chenchenhouse.com//wp-content/uploads/2020/10/%E5%9C%96%E7%89%871-2.png",
                         title= "英文天才",
                         text = "Fan之Q",
-                        actions = [
-                            MessageAction(
-                                label = "英文課程",
-                                text = "英文課程資訊"
+                        actions=[
+                            PostbackTemplateAction(
+                            label='postback1',
+                            text='postback text1',
+                            data='action=buy&itemid=1'
                             ),
-                            MessageAction(
-                                label =  "發音課程",
-                                text = "發音課程資訊"
+                            MessageTemplateAction(
+                                label='message1',
+                                text='message text1'
+                            ),
+                            URITemplateAction(
+                                label='uri1',
+                                uri='http://example.com/1'
                             )
                         ]
                     )
