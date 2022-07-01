@@ -113,7 +113,7 @@ def reply(event,message):
             template=CarouselTemplate(
                 coulums=[
                     CarouselColumn(
-                        thumbnail_image_url="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.Q0HpYXqb_UAG1tIoue99-QHaEo%26pid%3DApi&f=1",
+                        thumbnail_image_url="https://chenchenhouse.com//wp-content/uploads/2020/10/%E5%9C%96%E7%89%871-2.png",
                         title= message[3:] + "英文天才",
                         text = "Fan之Q",
                         actions = [
@@ -123,7 +123,7 @@ def reply(event,message):
                             ),
                             MessageAction(
                                 label = message[3:] + "發音課程",
-                                text = "發音課程資訊" + message[3:]
+                                text = "發音課程資訊" + message[3:],
                             )
                         ]
                     )
