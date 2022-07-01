@@ -107,14 +107,14 @@ def reply(event,message):
         line_bot_api.reply_message(
             event.reply_token,audio_message
         )
-    if("Fan" in message):
+    if "Fan" in message:
         button_template_message = TemplateSendMessage(
             alt_text="你知道這是什麼嗎?",
             template=CarouselTemplate(
                 coulums=[
                     CarouselColumn(
                         thumbnail_image_url="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.Q0HpYXqb_UAG1tIoue99-QHaEo%26pid%3DApi&f=1",
-                        title= message + "英文天才",
+                        title= message[3:] + "英文天才",
                         text = "Fan之Q",
                         actions = [
                             MessageAction(
@@ -123,7 +123,7 @@ def reply(event,message):
                             ),
                             MessageAction(
                                 label = message[3:] + "發音課程",
-                                text = "發音課程資訊" + message[3:],
+                                text = "發音課程資訊" + message[3:]
                             )
                         ]
                     )
