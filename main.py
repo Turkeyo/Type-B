@@ -92,7 +92,7 @@ def reply(event,message):
             original_content_url="https://media.giphy.com/media/QMHoU66sBXqqLqYvGO/giphy.gif",
             preview_image_url="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.Q0HpYXqb_UAG1tIoue99-QHaEo%26pid%3DApi&f=1"
         )
-        #傳送地圖訊息
+        #傳送影片訊息
         line_bot_api.reply_message(
             event.reply_token,video_message
         )
@@ -102,9 +102,13 @@ def reply(event,message):
             original_content_url="https://b.ppy.sh/preview/332280.mp3",
             duration=30000
         )
-        #傳送地圖訊息
+        #傳送音效訊息
         line_bot_api.reply_message(
             event.reply_token,audio_message
+        )
+    else:
+        line_bot_api.reply_message(
+            "未知指令"
         )
 if __name__ == "__main__":
     app.run()
