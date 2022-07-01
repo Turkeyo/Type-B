@@ -107,23 +107,23 @@ def reply(event,message):
         line_bot_api.reply_message(
             event.reply_token,audio_message
         )
-    if "Fan" in message:
+    elif(re.match("Fan"),message):
         button_template_message = TemplateSendMessage(
             alt_text="你知道這是什麼嗎?",
             template=CarouselTemplate(
                 coulums=[
                     CarouselColumn(
                         thumbnail_image_url="https://chenchenhouse.com//wp-content/uploads/2020/10/%E5%9C%96%E7%89%871-2.png",
-                        title= message[3:] + "英文天才",
+                        title= "英文天才",
                         text = "Fan之Q",
                         actions = [
                             MessageAction(
-                                label = message[3:] + "英文課程",
-                                text = "英文課程資訊" + message[3:],
+                                label = "英文課程",
+                                text = "英文課程資訊"
                             ),
                             MessageAction(
-                                label = message[3:] + "發音課程",
-                                text = "發音課程資訊" + message[3:],
+                                label =  "發音課程",
+                                text = "發音課程資訊"
                             )
                         ]
                     )
