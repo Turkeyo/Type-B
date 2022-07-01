@@ -2,7 +2,6 @@ from audioop import add
 from cgitb import text
 from itertools import product
 from pipes import Template
-from tkinter import Button
 from flask import Flask, request, abort
 import os
 import re #判斷接收訊息
