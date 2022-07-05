@@ -76,14 +76,17 @@ def reply(event,message):
         line_bot_api.reply_message(
             event.reply_token,location_message
         )
-    elif(re.match("不可以色色",message)):
+    elif(re.match("斗肉",message)):
         image_message = ImageSendMessage(
             #設定原圖
-            original_content_url="https://i.imgur.com/UnDldbZ.jpg",
+            original_content_url="https://gss0.baidu.com/-Po3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/86d6277f9e2f0708d3880a95e124b899a801f292.jpg",
             #設定預覽圖
             preview_image_url="https://i.imgur.com/qxWF0Ehh.jpg"
         )
         #傳送地圖訊息
+        line_bot_api.reply_message(
+                event.reply_token,
+                TextSendMessage("猛斯塔卡豆"))
         line_bot_api.reply_message(
             event.reply_token,image_message
         )
