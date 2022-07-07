@@ -49,24 +49,37 @@ def handle_message(event):
 
 def reply(event,message):
     #判斷接收訊息
-    if "股票" in message:
+    if "買卡" in message:
         buttons_template_message = TemplateSendMessage(
-            alt_text="股票資訊",
+            alt_text="購買資訊",
             template=CarouselTemplate(
                 columns=[
                     CarouselColumn(
-                        thumbnail_image_url="https://gss0.baidu.com/-Po3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/86d6277f9e2f0708d3880a95e124b899a801f292.jpg",
+                        thumbnail_image_url="https://imgur.dcard.tw/nhh5jXEh.jpg",
                         title = message + "資訊",
-                        text = "點擊資訊",
+                        text = "海超人卡包",
                         actions = [
                             MessageAction(
-                                label = message[3:] + "資訊",
-                                text = "資訊" + message[3:]),
+                                label = "普通卡",
+                                text = "10包"),
                             MessageAction(
-                                label = message[3:] + "新聞",
-                                text = "新聞" + message[3:]),
+                                label = "豪華卡",
+                                text = "100包"),
                         ]
-                    )
+                    ),
+                    CarouselColumn(
+                        thumbnail_image_url="https://img.ruten.com.tw/s1/0/cf/1b/21917125126939_602.JPG",
+                        title = message + "資訊",
+                        text = "遊戲王卡包",
+                        actions = [
+                            MessageAction(
+                                label = "普通卡",
+                                text = "10包"),
+                            MessageAction(
+                                label = "豪華卡",
+                                text = "100包"),
+                        ]
+                    ),
                 ]
             )
         )
