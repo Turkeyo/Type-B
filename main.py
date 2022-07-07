@@ -49,6 +49,28 @@ def handle_message(event):
 
 def reply(event,message):
     #判斷接收訊息
+    if "股票" in message:
+        buttons_template_message = TemplateSendMessage(
+            alt_text="股票資訊",
+            template=CarouselTemplate(
+                columns=[
+                    CarouselColumn(
+                        thumbnail_image_url="https://gss0.baidu.com/-Po3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/86d6277f9e2f0708d3880a95e124b899a801f292.jpg",
+                        title = message + "資訊",
+                        text = "點擊資訊",
+                        actions = [
+                            MessageAction(
+                                label = message[3:] + "資訊",
+                                text = "資訊" + message[3:]),
+                            MessageAction(
+                                label = message[3:] + "新聞",
+                                text = "新聞" + message[3:]),
+                        ]
+                    )
+                ]
+            )
+        )
+        line_bot_api.reply_message(event.reply_token, button_template_message)
     if(re.match("早安",message)):
         line_bot_api.reply_message(
                 event.reply_token,
