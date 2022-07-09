@@ -18,8 +18,11 @@ from linebot.models import (
 
 app = Flask(__name__)
 
+#Channel access token
 line_bot_api = LineBotApi('GMs6Tk96xQY4mxFbMB/DDgzwIphmIBuxaVrtEAdhdA+efTcRsYKeLseoIlTsab9/aEDaEGKLJgUlo9fohNT9dFILA6MwRtxe0t5j19BbR/4IiJoKgFMf+GXWtXVIyYFb0G/ReGkKlvYbLqQvxTLyDwdB04t89/1O/w1cDnyilFU=')
+#Channel secret
 handler = WebhookHandler('4b0e8e639bef445d9c9a9497573741cc')
+#Development line id
 line_bot_api.push_message('U4a4203a9016e01ae9310c692a606d2ed', TextSendMessage(text='BOT啟動成功'))
 
 
@@ -40,28 +43,36 @@ def callback():
 
     return 'OK'
 
-#當使用者發送訊息
+#When user send message 當使用者發送訊息
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    #取得使用者的訊息
+    #Get user message 取得使用者的訊息
     message = event.message.text
     reply(event,message)
 
+#Judgment message content 判斷接收訊息
 def reply(event,message):
-    #判斷接收訊息
+    #If have "買卡" Words In the content
     if "買卡" in message:
         buttons_template_message = TemplateSendMessage(
-            alt_text="購買資訊",
+            alt_text="購買卡包",  #Not display on the reply message
             template=CarouselTemplate(
                 columns=[
                     CarouselColumn(
+                        #Display image
                         thumbnail_image_url="https://imgur.dcard.tw/nhh5jXEh.jpg",
+                        #Set image Aspect
+                        imageAspectRatio="rectangle",
+                        #Set image background color #FFD700 is Golden
+                        imageBackgroundColor = "#FFD700",
+                        #Message Title
                         title = message + "資訊",
+                        #Message
                         text = "海超人卡包",
                         actions = [
                             MessageAction(
-                                label = "普通卡",
-                                text = "10包"),
+                                label = "普通卡",  #選擇項目
+                                text = "10包"),    #使用者輸出
                             MessageAction(
                                 label = "豪華卡",
                                 text = "100包"),
