@@ -62,9 +62,9 @@ def reply(event,message):
                         #Display image
                         thumbnail_image_url="https://imgur.dcard.tw/nhh5jXEh.jpg",
                         #Set image Aspect
-                        image_Aspect_Ratio="rectangle",
+                        #image_Aspect_Ratio="rectangle",
                         #Set image background color #FFD700 is Golden
-                        image_Background_Color = "#FFD700",
+                        #image_Background_Color = "#FFD700",
                         #Message Title
                         title = message + "資訊",
                         #Message
