@@ -260,6 +260,7 @@ def reply(event,message):
                 ]
                 }
         )
+        line_bot_api.reply_message(event.reply_token,test_message)
     if "抽卡" in message:
         buttons_template_message = TemplateSendMessage(
             alt_text="卡包選項",  #Not display on the reply message
