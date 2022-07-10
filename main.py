@@ -196,7 +196,6 @@ def reply(event,message):
                         {
                             "type": "text",
                             "text": "Temporarily out of stock",
-                            "wrap": True,
                             "size": "xxs",
                             "margin": "md",
                             "color": "#ff5551",
