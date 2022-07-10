@@ -58,7 +58,7 @@ def reply(event,message):
     if re.match('test',message):
         test_message = FlexSendMessage(
             alt_text="測試按鈕",
-            contents={{
+            contents={
                 "type": "carousel",
                 "contents": [
                     {
@@ -258,7 +258,7 @@ def reply(event,message):
                     }
                     }
                 ]
-            }}
+            }
         )
         line_bot_api.reply_message(event.reply_token,test_message)
     if "抽卡" in message:
