@@ -5,6 +5,8 @@ from cgitb import text
 from flask import Flask, request, abort
 import os
 import re #判斷接收訊息
+import requests
+
 
 from linebot import (
     LineBotApi, WebhookHandler
@@ -53,27 +55,25 @@ def handle_message(event):
 #Judgment message content 判斷接收訊息
 def reply(event,message):
     #If have "買卡" Words In the content
-    if "買卡" in message:
+    if "抽卡" in message:
         buttons_template_message = TemplateSendMessage(
-            alt_text="購買卡包",  #Not display on the reply message
+            alt_text="卡包選項",  #Not display on the reply message
             template=CarouselTemplate(
                 columns=[
                     CarouselColumn(
                         #Display image
-                        thumbnail_image_url="https://imgur.dcard.tw/nhh5jXEh.jpg",
-                        #Set image background color #FFD700 is Golden
-                        image_Background_Color = "#FFD700",
+                        thumbnail_image_url="https://i.imgur.com/UnDldbZ.jpg",
                         #Message Title
-                        title = message + "資訊",
+                        title = "柴犬卡包",
                         #Message
-                        text = "海超人卡包",
+                        text = "卡包",
                         actions = [
                             MessageAction(
-                                label = "普通卡",  #選擇項目
-                                text = "10包"),    #使用者輸出
+                                label = "單抽",  #選擇項目
+                                text = "柴犬抽1張"),    #使用者輸出
                             MessageAction(
-                                label = "豪華卡",
-                                text = "100包"),
+                                label = "10連抽",
+                                text = "柴犬抽10張"),
                         ]
                     ),
                     CarouselColumn(
@@ -93,6 +93,11 @@ def reply(event,message):
             )
         )
         line_bot_api.reply_message(event.reply_token, buttons_template_message)
+    if(re.match("早安",message)):
+        line_bot_api.reply_message(
+                event.reply_token,
+                TextSendMessage(event.message.text))
+
     if(re.match("早安",message)):
         line_bot_api.reply_message(
                 event.reply_token,
@@ -128,9 +133,9 @@ def reply(event,message):
             preview_image_url="https://i.imgur.com/qxWF0Ehh.jpg"
         )
         #傳送地圖訊息
-        line_bot_api.reply_message(
-                event.reply_token,
-                TextSendMessage("猛斯塔卡豆"))
+        #line_bot_api.reply_message(
+        #        event.reply_token,
+        #        TextSendMessage("猛斯塔卡豆"))
         line_bot_api.reply_message(
             event.reply_token,image_message
         )
