@@ -94,16 +94,21 @@ def reply(event,message):
         )
         line_bot_api.reply_message(event.reply_token, buttons_template_message)
     if(re.match("柴犬抽1張",message)):
-        imgTitle = ""
+        imgTitle,imgSrc = ""
         imgTitle = randomChoice.cho.choicetitle(imgTitle)
-        #imgSrc = randomChoice.cho.choicesrc(imgSrc)
-        #image_message = ImageSendMessage(
+        imgSrc = randomChoice.cho.choicesrc(imgSrc)
+        image_message = ImageSendMessage(
             #設定原圖
-        #    original_content_url=imgSrc
-        #)
+            original_content_url=imgSrc,
+            #設定預覽圖
+            preview_image_url = "https://gss0.baidu.com/-Po3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/0b7b02087bf40ad1b1aab867502c11dfa8ecceec.jpg"
+        )
         line_bot_api.reply_message(
                 event.reply_token,
                 TextSendMessage(imgTitle)
+        )
+        line_bot_api.reply_message(
+            event.reply_token,image_message
         )
         #line_bot_api.reply_message(
         #    event.reply_token,image_message
