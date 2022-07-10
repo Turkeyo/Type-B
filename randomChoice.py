@@ -11,15 +11,17 @@ with open('./data/cards.json',mode='r',encoding='utf-8') as file:
 #for i in range(1,160):
 #    print(data[i]['title'])
 #    print(data[i]['src'])
+number = random.randrange(1,160)
 class cho:
     def choicetitle(a):
-        number = random.randrange(1,160)
         a = data[number]['title']
         return a
     def choicesrc(b):
-        number = random.randrange(1,160)
         b = data[number]['src']
+        print(b)
         return b
-
+src = ""
+src = cho.choicesrc(src)
+print(src)
 #for i in data['title']:
 #    print(i)
