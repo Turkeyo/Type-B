@@ -15,7 +15,7 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import (
-    MessageEvent, TextMessage, TextSendMessage,StickerSendMessage,LocationSendMessage,ImageSendMessage,VideoSendMessage,AudioSendMessage,TemplateSendMessage,CarouselTemplate,MessageAction,CarouselColumn
+    MessageEvent, TextMessage, TextSendMessage,StickerSendMessage,LocationSendMessage,ImageSendMessage,VideoSendMessage,AudioSendMessage,TemplateSendMessage,CarouselTemplate,MessageAction,CarouselColumn,FlexSendMessage
 )
 
 app = Flask(__name__)
@@ -55,6 +55,211 @@ def handle_message(event):
 #Judgment message content 判斷接收訊息
 def reply(event,message):
     #If have "買卡" Words In the content
+    if re.match('test',message):
+        test_message = FlexSendMessage(
+            alt_text="測試按鈕",
+            contents={
+                "type": "carousel",
+                "contents": [
+                    {
+                    "type": "bubble",
+                    "hero": {
+                        "type": "image",
+                        "size": "full",
+                        "aspectRatio": "8:11",
+                        "aspectMode": "cover",
+                        "url": "https://i.imgur.com/UnDldbZ.jpg",
+                        "position": "relative",
+                        "margin": "none",
+                        "animated": False,
+                        "offsetTop": "none",
+                        "offsetBottom": "none",
+                        "offsetStart": "none",
+                        "offsetEnd": "none",
+                        "action": {
+                        "type": "uri",
+                        "label": "action",
+                        "uri": "https://tonypai.com.tw/dogedeck/"
+                        },
+                        "align": "start",
+                        "gravity": "center"
+                    },
+                    "body": {
+                        "type": "box",
+                        "layout": "vertical",
+                        "spacing": "sm",
+                        "contents": [
+                        {
+                            "type": "text",
+                            "text": "柴犬卡包",
+                            "wrap": true,
+                            "weight": "bold",
+                            "size": "xl"
+                        },
+                        {
+                            "type": "box",
+                            "layout": "baseline",
+                            "contents": [
+                            {
+                                "type": "text",
+                                "text": "$1",
+                                "wrap": true,
+                                "weight": "bold",
+                                "size": "xl",
+                                "flex": 0,
+                                "contents": [
+                                {
+                                    "type": "span",
+                                    "text": "快進入柴犬的世界吧",
+                                    "color": "#CE0000"
+                                }
+                                ]
+                            }
+                            ]
+                        },
+                        {
+                            "type": "text",
+                            "text": "抽卡分別為 單抽及十抽",
+                            "weight": "bold",
+                            "color": "#FFD306"
+                        }
+                        ]
+                    },
+                    "footer": {
+                        "type": "box",
+                        "layout": "vertical",
+                        "spacing": "sm",
+                        "contents": [
+                        {
+                            "type": "button",
+                            "style": "primary",
+                            "action": {
+                            "type": "message",
+                            "label": "action",
+                            "text": "hello"
+                            }
+                        },
+                        {
+                            "type": "button",
+                            "action": {
+                            "type": "uri",
+                            "label": "Add to wishlist",
+                            "uri": "https://linecorp.com"
+                            }
+                        }
+                        ]
+                    },
+                    "styles": {
+                        "body": {
+                        "backgroundColor": "#FFFCEC"
+                        }
+                    }
+                    },
+                    {
+                    "type": "bubble",
+                    "hero": {
+                        "type": "image",
+                        "size": "full",
+                        "aspectRatio": "20:13",
+                        "aspectMode": "cover",
+                        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_6_carousel.png"
+                    },
+                    "body": {
+                        "type": "box",
+                        "layout": "vertical",
+                        "spacing": "sm",
+                        "contents": [
+                        {
+                            "type": "text",
+                            "text": "Metal Desk Lamp",
+                            "wrap": true,
+                            "weight": "bold",
+                            "size": "xl"
+                        },
+                        {
+                            "type": "box",
+                            "layout": "baseline",
+                            "flex": 1,
+                            "contents": [
+                            {
+                                "type": "text",
+                                "text": "$11",
+                                "wrap": true,
+                                "weight": "bold",
+                                "size": "xl",
+                                "flex": 0
+                            },
+                            {
+                                "type": "text",
+                                "text": ".99",
+                                "wrap": true,
+                                "weight": "bold",
+                                "size": "sm",
+                                "flex": 0
+                            }
+                            ]
+                        },
+                        {
+                            "type": "text",
+                            "text": "Temporarily out of stock",
+                            "wrap": true,
+                            "size": "xxs",
+                            "margin": "md",
+                            "color": "#ff5551",
+                            "flex": 0
+                        }
+                        ]
+                    },
+                    "footer": {
+                        "type": "box",
+                        "layout": "vertical",
+                        "spacing": "sm",
+                        "contents": [
+                        {
+                            "type": "button",
+                            "flex": 2,
+                            "style": "primary",
+                            "color": "#aaaaaa",
+                            "action": {
+                            "type": "uri",
+                            "label": "Add to Cart",
+                            "uri": "https://linecorp.com"
+                            }
+                        },
+                        {
+                            "type": "button",
+                            "action": {
+                            "type": "uri",
+                            "label": "Add to wish list",
+                            "uri": "https://linecorp.com"
+                            }
+                        }
+                        ]
+                    }
+                    },
+                    {
+                    "type": "bubble",
+                    "body": {
+                        "type": "box",
+                        "layout": "vertical",
+                        "spacing": "sm",
+                        "contents": [
+                        {
+                            "type": "button",
+                            "flex": 1,
+                            "gravity": "center",
+                            "action": {
+                            "type": "uri",
+                            "label": "See more",
+                            "uri": "https://linecorp.com"
+                            }
+                        }
+                        ]
+                    }
+                    }
+                ]
+                }
+        )
     if "抽卡" in message:
         buttons_template_message = TemplateSendMessage(
             alt_text="卡包選項",  #Not display on the reply message
