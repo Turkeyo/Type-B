@@ -71,7 +71,6 @@ def reply(event,message):
                         "url": "https://i.imgur.com/UnDldbZ.jpg",
                         "position": "relative",
                         "margin": "none",
-                        "animated": False,
                         "offsetTop": "none",
                         "offsetBottom": "none",
                         "offsetStart": "none",
@@ -92,7 +91,6 @@ def reply(event,message):
                         {
                             "type": "text",
                             "text": "柴犬卡包",
-                            "wrap": True,
                             "weight": "bold",
                             "size": "xl"
                         },
@@ -103,7 +101,6 @@ def reply(event,message):
                             {
                                 "type": "text",
                                 "text": "$1",
-                                "wrap": True,
                                 "weight": "bold",
                                 "size": "xl",
                                 "flex": 0,
@@ -172,7 +169,6 @@ def reply(event,message):
                         {
                             "type": "text",
                             "text": "Metal Desk Lamp",
-                            "wrap": True,
                             "weight": "bold",
                             "size": "xl"
                         },
@@ -184,7 +180,6 @@ def reply(event,message):
                             {
                                 "type": "text",
                                 "text": "$11",
-                                "wrap": True,
                                 "weight": "bold",
                                 "size": "xl",
                                 "flex": 0
@@ -192,7 +187,6 @@ def reply(event,message):
                             {
                                 "type": "text",
                                 "text": ".99",
-                                "wrap": True,
                                 "weight": "bold",
                                 "size": "sm",
                                 "flex": 0
