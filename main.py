@@ -105,7 +105,9 @@ def reply(event,message):
         )
         line_bot_api.reply_message(
             event.reply_token,imgTitle,
-            time.sleep(3),
+        )
+        time.sleep(3)
+        line_bot_api.reply_message(
             event.reply_token,image_message
         )
     if(re.match("早安",message)):
