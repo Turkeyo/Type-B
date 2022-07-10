@@ -93,13 +93,20 @@ def reply(event,message):
             )
         )
         line_bot_api.reply_message(event.reply_token, buttons_template_message)
-    if(re.match("柴犬抽一張",message)):
+    if(re.match("柴犬抽1張",message)):
         imgTitle,imgSrc = ""
         imgTitle = randomChoice.cho.choicetitle(imgTitle)
         imgSrc = randomChoice.cho.choicesrc(imgSrc)
+        image_message = ImageSendMessage(
+            #設定原圖
+            original_content_url=imgSrc
+        )
         line_bot_api.reply_message(
                 event.reply_token,
                 TextSendMessage(imgTitle)
+        )
+        line_bot_api.reply_message(
+            event.reply_token,image_message
         )
     if(re.match("早安",message)):
         line_bot_api.reply_message(
