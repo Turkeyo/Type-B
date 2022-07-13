@@ -15,7 +15,7 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import (
-    MessageEvent, TextMessage, TextSendMessage,StickerSendMessage,LocationSendMessage,ImageSendMessage,VideoSendMessage,AudioSendMessage,TemplateSendMessage,CarouselTemplate,MessageAction,CarouselColumn,FlexSendMessage
+    MessageEvent, TextMessage, TextSendMessage,StickerSendMessage,LocationSendMessage,ImageSendMessage,VideoSendMessage,AudioSendMessage,TemplateSendMessage,CarouselTemplate,MessageAction,CarouselColumn,FlexSendMessage,QuickReplyButton,QuickReply
 )
 
 app = Flask(__name__)
@@ -387,8 +387,13 @@ def reply(event,message):
                 ]
             )
         )
+    elif(re.match("Test",message)):
+        flex_message = TextSendMessage(text="選擇顯示資訊",
+            quick_reply=QuickReply(items=[
+                QuickReplyButton(action=MessageAction(label="Test one label",text="Text one text"))
+        ]))
         line_bot_api.reply_message(
-            event.reply_token, button_template_message
+            event.reply_token,flex_message
             )
 
 if __name__ == "__main__":
