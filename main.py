@@ -387,10 +387,13 @@ def reply(event,message):
                 ]
             )
         )
+        #Detect message is Test
     elif(re.match("Test",message)):
+        #Bot send Message
         flex_message = TextSendMessage(text="選擇顯示資訊",
+        #Display User can use reply buttons
             quick_reply=QuickReply(items=[
-                QuickReplyButton(action=MessageAction(label="Test one label",text="Text one text"))
+                QuickReplyButton(action=MessageAction(label="Test one label",text="斗肉"))
         ]))
         line_bot_api.reply_message(
             event.reply_token,flex_message
