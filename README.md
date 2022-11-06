@@ -3,7 +3,8 @@ Type-B
 ====
 Line Bot
 
-[I'm an inline-style link](https://www.google.com)
+Inline-style: 
+![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
 
 如果出現H14問題：在cmd中使用 heroku ps:scale web=1
 出現H12代表城市碼中有問題
