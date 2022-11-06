@@ -1,4 +1,6 @@
-[plain] Type-B
+[plain] 
+
+Type-B
 ====
 Line Bot
 
