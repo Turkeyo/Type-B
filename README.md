@@ -4,7 +4,8 @@ Type-BCancel
 Line Bot
 
 #BOT QR Code: <br>
-![QR Code](https://qr-official.line.me/sid/L/661ncyab.png)
+![alt text][logo]
+[logo]: https://qr-official.line.me/sid/L/661ncyab.png
 
 如果出現H14問題：在cmd中使用 heroku ps:scale web=1
 出現H12代表城市碼中有問題
