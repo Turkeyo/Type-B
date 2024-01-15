@@ -21,9 +21,9 @@ from linebot.models import (
 app = Flask(__name__)
 
 #Channel access token
-line_bot_api = LineBotApi('GMs6Tk96xQY4mxFbMB/DDgzwIphmIBuxaVrtEAdhdA+efTcRsYKeLseoIlTsab9/aEDaEGKLJgUlo9fohNT9dFILA6MwRtxe0t5j19BbR/4IiJoKgFMf+GXWtXVIyYFb0G/ReGkKlvYbLqQvxTLyDwdB04t89/1O/w1cDnyilFU=')
+line_bot_api = LineBotApi('???')
 #Channel secret
-handler = WebhookHandler('4b0e8e639bef445d9c9a9497573741cc')
+handler = WebhookHandler('???')
 #Development line id
 line_bot_api.push_message('U4a4203a9016e01ae9310c692a606d2ed', TextSendMessage(text='BOT啟動成功'))
 
